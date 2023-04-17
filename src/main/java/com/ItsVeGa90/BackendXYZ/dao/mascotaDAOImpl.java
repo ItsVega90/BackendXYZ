@@ -13,7 +13,7 @@ import java.util.*;
 
 @Component
 public class mascotaDAOImpl implements mascotaDAO {
-    String INSERT = "INSERT INTO mascota (idm, nombrem, especiem, razam, fechanacimientom, fechaentradam, clientem) VALUES (?,?);";
+    String INSERT = "INSERT INTO mascota (idm, nombrem, especiem, razam, fechanacimientom, fechaentradam, clientem) VALUES (?,?,?,?,?,?,?);";
     String UPDATE = "UPDATE mascota SET nombrem=?, especiem=?, razam=?, fechanacimientom=?, fechaentradam=?, clientem=? WHERE idm=?;";
     String DELETE = "DELETE FROM mascota WHERE idm=?;";
     String SELECTBYID = "SELECT M.idm, M.nombrem, M.especiem, E.nombree, M.razam, M.fechanacimientom, M.fechaentradam, M.clientem, C.tipoidc, T.nombret, C.identificacionc, C.nombrec, C.ciudadc, C.direccionc, C.telefonoc\n" +
@@ -108,7 +108,7 @@ public class mascotaDAOImpl implements mascotaDAO {
         try {
             statement = connection.prepareStatement(SELECTBYID);
             statement.setInt(1, masDTO.getIdm());
-            statement.executeQuery();
+            resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 result = new mascotaDTO();
                 result.setIdm(resultSet.getInt("idm"));
