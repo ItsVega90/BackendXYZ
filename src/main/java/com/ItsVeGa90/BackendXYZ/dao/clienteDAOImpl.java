@@ -12,7 +12,7 @@ import java.util.*;
 @Component
 public class clienteDAOImpl implements clienteDAO {
     String INSERT = "INSERT INTO cliente (idc, tipoidc, identificacionc, nombrec, ciudadc, direccionc, telefonoc) VALUES (?,?,?,?,?,?,?);";
-    String UPDATE = "UPDATE cliente SET tipoidc=?, identificacionc=?, nombrec=?, ciudadc=?, direccionc=?, telefonoc=?,  WHERE idc=?;";
+    String UPDATE = "UPDATE cliente SET tipoidc=?, identificacionc=?, nombrec=?, ciudadc=?, direccionc=?, telefonoc=? WHERE idc=?;";
     String DELETE = "DELETE FROM cliente WHERE idc=?;";
     String SELECTBYID = "SELECT C.idc, C.tipoidc, T.nombret, C.identificacionc, C.nombrec, C.ciudadc, C.direccionc, C.telefonoc \n" +
             "FROM cliente as C \n" +
